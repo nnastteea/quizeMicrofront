@@ -1,11 +1,8 @@
-import path from "path";
-import TerserPlugin from "terser-webpack-plugin";
-import { Configuration } from "webpack";
-import { merge } from "webpack-merge";
+const path = require("path");
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
 
-import config from "./webpack.config.js";
-
-const prodConfig: Configuration = merge(config, {
+module.exports = merge(common, {
   mode: "production",
 
   output: {
@@ -32,5 +29,3 @@ const prodConfig: Configuration = merge(config, {
     },
   },
 });
-
-export default prodConfig;

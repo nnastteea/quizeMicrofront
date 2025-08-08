@@ -1,17 +1,17 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { Configuration, container } from "webpack";
-const { ModuleFederationPlugin } = container;
-import path from "path";
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
-const config: Configuration = {
-  entry: "./src/index.js",
+module.exports = {
+  entry: "./src/index.tsx",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+  },
 
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
-    alias: {
-      "@components": path.resolve(__dirname, "./src/components"),
-      "@data": path.resolve(__dirname, "./src/data"),
-    },
   },
 
   module: {
@@ -42,7 +42,7 @@ const config: Configuration = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: "./src/index.html",
     }),
     new ModuleFederationPlugin({
       name: "quizMicrofront",
@@ -59,7 +59,6 @@ const config: Configuration = {
         },
       },
     }),
+    new CleanWebpackPlugin(),
   ],
 };
-
-export default config;
