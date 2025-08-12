@@ -1,0 +1,25 @@
+.resultContainer {
+  background: #fbf8f8d0;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.resultContainer h3 {
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
+.resultContainer p:first-child {
+  margin: 10px;
+}
+
+.resultText {
+  font-size: 28px;
+  color: rgb(134, 98, 73);
+  font-weight: 500;
+}

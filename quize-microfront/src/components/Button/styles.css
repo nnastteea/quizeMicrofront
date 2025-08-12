@@ -1,0 +1,26 @@
+.button {
+  width: 450px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  background: rgb(134, 98, 73);
+  color: black;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background: rgb(130, 113, 101);
+  color: #222222;
+}
+
+@media (max-width: 500px) {
+  .button {
+    width: 100%;
+  }
+}
