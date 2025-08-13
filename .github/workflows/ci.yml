@@ -20,9 +20,9 @@ jobs:
 
       - name: Run Linter from Monorepo
         run: |
-          cd ../../../../
           npm install
           npm run lint
+          working-directory: ./
         
       - name: Install dependencies
         run: npm install
