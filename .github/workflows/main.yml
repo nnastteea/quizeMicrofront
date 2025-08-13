@@ -24,8 +24,17 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Run Tests
-        run: npm run test
+      - name: Install dependencies in quizeMicrofront
+        run: |
+          cd quizeMicrofront
+          npm install
 
-      - name: Run Tests with Coverage
-        run: npm run test:coverage
+      - name: Run tests in quizeMicrofront
+        run: |
+          cd quizeMicrofront
+          npm run test
+
+      - name: Run tests with coverage in quizeMicrofront
+        run: |
+          cd quizeMicrofront
+          npm run test:coverage
