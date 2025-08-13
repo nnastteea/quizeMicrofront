@@ -19,13 +19,16 @@ jobs:
           node-version: '20'
         
       - name: Install dependencies
-        run: npm install
-        working-directory: ./quize-microfront
+        run: |
+          cd ../../
+          npm install
       
       - name: Run Tests
-        run: npm run test
-        working-directory: ./quize-microfront
+        run: |
+          cd ../../
+          npm run test
 
       - name: Run Tests with Coverage
-        run: npm run test:coverage
-        working-directory: ./quize-microfront
+        run: |
+          cd ../../
+          npm run test:coverage
