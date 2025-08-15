@@ -1,0 +1,17 @@
+.quizeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.quizeH3 {
+  font-size: 22px;
+  color: #7e685a;
+  letter-spacing: 5px;
+  width: 80%;
+  max-width: 800px;
+}

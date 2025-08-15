@@ -56,11 +56,11 @@ module.exports = {
       template: "./src/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "quizeMicrofront",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./Quize": "./src/bootstrap.tsx",
+      name: "host",
+      remotes: {
+        quizeMicrofront: "quizeMicrofront@http://localhost:8081/remoteEntry.js",
       },
+
       shared: {
         react: {
           singleton: true,

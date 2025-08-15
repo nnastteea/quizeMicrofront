@@ -29,6 +29,9 @@
   object-fit: cover;
 }
 
+.questionAndImage h3 {
+  margin-top: 5px;
+}
 .answersBlock {
   display: grid;
   grid-template-columns: 1fr 1fr;
