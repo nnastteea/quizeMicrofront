@@ -41,8 +41,12 @@ export const quizeSlice = createSlice({
         Object.assign(state, initialState);
       }
     },
+    resetState: (state) => {
+      Object.assign(state, initialState);
+    },
   },
 });
 
-export const { selectAnswer, nextQuestion, doTestAgain } = quizeSlice.actions;
+export const { selectAnswer, nextQuestion, doTestAgain, resetState } =
+  quizeSlice.actions;
 export default quizeSlice.reducer;

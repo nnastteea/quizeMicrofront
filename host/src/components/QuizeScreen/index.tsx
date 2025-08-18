@@ -19,6 +19,7 @@ function QuizeScreen() {
   const { userName } = useUser();
   const navigate = useNavigate();
   const handleClickReturn = () => {
+    window.dispatchEvent(new CustomEvent("reset-quize"));
     navigate("/");
   };
   return (
