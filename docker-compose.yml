@@ -1,0 +1,24 @@
+services:
+  quize:
+    build:
+      context: ./quizeMicrofront
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - quize-network
+
+  host:
+    build:
+      context: ./host
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - quize-network
+    depends_on:
+      - quize
+
+networks:
+  quize-network:
+    driver: bridge

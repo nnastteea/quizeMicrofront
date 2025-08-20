@@ -7,7 +7,8 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "..", "dist"),
+    publicPath: "/",
   },
 
   resolve: {
@@ -56,7 +57,7 @@ module.exports = {
       template: "./src/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "quizeMicrofront",
+      name: "quize",
       filename: "remoteEntry.js",
       exposes: {
         "./Quize": "./src/bootstrap.tsx",

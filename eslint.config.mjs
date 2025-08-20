@@ -6,6 +6,7 @@ import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 
 export default [
   {
+    ignores: ["**/dist/"],
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     languageOptions: {
       parser: babelParser,

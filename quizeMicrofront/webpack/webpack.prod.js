@@ -7,9 +7,9 @@ module.exports = merge(common, {
   mode: "production",
 
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "..", "dist"),
+    publicPath: "auto",
     filename: "[name].[contenthash].js",
-    publicPath: "http://localhost:8081/",
     clean: true,
   },
 
@@ -25,8 +25,5 @@ module.exports = merge(common, {
         extractComments: false,
       }),
     ],
-    splitChunks: {
-      chunks: "all",
-    },
   },
 });

@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -54,23 +53,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-    }),
-    new ModuleFederationPlugin({
-      name: "host",
-      remotes: {
-        quizeMicrofront: "quizeMicrofront@http://localhost:8081/remoteEntry.js",
-      },
-
-      shared: {
-        react: {
-          singleton: true,
-          eager: true,
-        },
-        "react-dom": {
-          singleton: true,
-          eager: true,
-        },
-      },
     }),
     new CleanWebpackPlugin(),
   ],

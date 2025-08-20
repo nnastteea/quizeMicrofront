@@ -9,7 +9,7 @@ import Loader from "../Loader/index";
 import "./styles.css";
 
 const Quize = React.lazy(() =>
-  import("quizeMicrofront/Quize").then((mod) => {
+  import("quize/Quize").then((mod) => {
     console.log("Loaded module:", mod);
     return mod;
   }),

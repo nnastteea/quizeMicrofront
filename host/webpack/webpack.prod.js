@@ -1,6 +1,8 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
+const TerserPlugin = require("terser-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = merge(common, {
   mode: "production",
@@ -8,7 +10,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    publicPath: "/",
+    publicPath: "http://localhost:8080/",
     clean: true,
   },
 
@@ -24,8 +26,24 @@ module.exports = merge(common, {
         extractComments: false,
       }),
     ],
-    splitChunks: {
-      chunks: "all",
-    },
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "host",
+      remotes: {
+        quize: "quize@http://localhost:8081/remoteEntry.js",
+      },
+
+      shared: {
+        react: {
+          singleton: true,
+          eager: true,
+        },
+        "react-dom": {
+          singleton: true,
+          eager: true,
+        },
+      },
+    }),
+  ],
 });
