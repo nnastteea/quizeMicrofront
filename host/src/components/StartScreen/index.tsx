@@ -37,7 +37,7 @@ function StartScreen() {
     }
   };
   return (
-    <div className="startContainer">
+    <div className="startContainer" data-cy="start-screen-container">
       <div className="startTextContainer">
         <h1>{hostAppText.startScreen.h1Text}</h1>
         <p>{hostAppText.startScreen.pText}</p>
@@ -47,6 +47,7 @@ function StartScreen() {
         <Button
           handleClick={handleStartQuize}
           text={hostAppText.buttonText.start}
+          dataCy="start-quize-button"
         />
         {isInput && <Notification />}
       </div>

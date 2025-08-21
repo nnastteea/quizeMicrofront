@@ -21,6 +21,7 @@ function Input() {
       <input
         id="input-name"
         type="text"
+        data-cy="user-name-input"
         value={userName}
         onChange={handleChange}
         className="input"

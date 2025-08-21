@@ -6,7 +6,7 @@ import "./styles.css";
 
 function Notification() {
   return (
-    <div className="notificationContainer">
+    <div className="notificationContainer" data-cy="notification-message">
       <p>{hostAppText.notification.notificationMessage}</p>
       <span className="notification"></span>
     </div>

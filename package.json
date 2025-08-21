@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint . --fix",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cypress": "cypress run"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,8 @@
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.39.0",
     "@typescript-eslint/parser": "^8.39.0",
-    "eslint": "^9.32.0",
+    "cypress": "^15.0.0",
+    "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-cypress": "^5.1.0",
     "eslint-plugin-import": "^2.32.0",

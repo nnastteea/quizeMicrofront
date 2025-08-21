@@ -29,7 +29,11 @@ function Button() {
   return (
     <>
       {isDone ? (
-        <button onClick={handleDoTestAgain} className="button">
+        <button
+          onClick={handleDoTestAgain}
+          className="button"
+          data-cy="do-test-again"
+        >
           {quizeText.button.takeAgain}
         </button>
       ) : (
@@ -37,6 +41,7 @@ function Button() {
           onClick={handleClickNextQuestion}
           disabled={selectedId ? false : true}
           className="button"
+          data-cy="next-question"
         >
           {buttonText}
         </button>

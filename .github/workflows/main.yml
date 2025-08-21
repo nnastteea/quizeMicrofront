@@ -24,6 +24,9 @@ jobs:
       - name: Run lint
         run: npm run lint
 
+      - name: Run e2e tests
+        run: npm run cypress
+
       - name: Install dependencies in quizeMicrofront
         run: |
           cd quizeMicrofront

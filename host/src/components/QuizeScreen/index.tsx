@@ -23,7 +23,7 @@ function QuizeScreen() {
     navigate("/");
   };
   return (
-    <div className="quizeContainer">
+    <div className="quizeContainer" data-cy="quize-screen-container">
       <h3 className="quizeH3">
         {hostAppText.quizeScreen.welcomeText(userName)}
       </h3>
@@ -35,6 +35,7 @@ function QuizeScreen() {
       <Button
         handleClick={handleClickReturn}
         text={hostAppText.buttonText.exit}
+        dataCy="return-start-screen-button"
       />
     </div>
   );

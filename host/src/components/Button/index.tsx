@@ -4,9 +4,9 @@ import ButtonProps from "../../types/ButtonProps";
 
 import "./styles.css";
 
-function Button({ handleClick, text }: ButtonProps) {
+function Button({ handleClick, text, dataCy }: ButtonProps) {
   return (
-    <button className="button" onClick={handleClick}>
+    <button className="button" data-cy={dataCy} onClick={handleClick}>
       {text}
     </button>
   );

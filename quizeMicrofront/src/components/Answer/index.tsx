@@ -25,6 +25,7 @@ function Answer({ id, answer, isCorrect }: AnswerType) {
           : { background: "#fbf8f8d0" }
       }
       className="answer"
+      data-cy="answer"
     >
       <p>{answer}</p>
     </div>

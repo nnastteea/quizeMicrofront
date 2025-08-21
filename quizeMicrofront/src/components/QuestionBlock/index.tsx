@@ -13,7 +13,7 @@ function QuestionBlock({ question }: QuestionProps) {
     (state: RootState) => state.quize,
   );
   return (
-    <div key={question.id} className="questionBlock">
+    <div key={question.id} className="questionBlock" data-cy="question-block">
       <div className="questionAndImage">
         {!isDone && (
           <Counter
