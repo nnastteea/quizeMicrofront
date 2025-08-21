@@ -18,21 +18,26 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Install dependencies in root
         run: npm install
 
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run e2e tests
-        run: npm run cypress
+      - name: Install dependencies in host
+        run: |
+          cd host
+          npm install
 
       - name: Install dependencies in quizeMicrofront
         run: |
           cd quizeMicrofront
           npm install
 
-      - name: Run tests in quizeMicrofront
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+      - name: Run unit tests in quizeMicrofront
         run: |
           cd quizeMicrofront
           npm run test
