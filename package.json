@@ -7,7 +7,7 @@
     "lint": "eslint . --fix",
     "format": "prettier --write .",
     "prepare": "husky",
-    "cypress": "cypress run",
+    "cypress:run": "cypress run",
     "start:microfront": "cd quizeMicrofront && npm run start",
     "start:host": "cd host && npm run start",
     "start:all": "npm run start:microfront & npm run start:host",
