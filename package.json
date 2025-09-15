@@ -1,0 +1,42 @@
+{
+  "name": "quize-monorepo",
+  "version": "1.0.0",
+  "description": "monorepo",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "cypress:run": "cypress run",
+    "start:microfront": "cd quizeMicrofront && npm run start",
+    "start:host": "cd host && npm run start",
+    "start:all": "npm run start:microfront & npm run start:host",
+    "test:e2e": "start-server-and-test start:all http://localhost:8080 cypress:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@eslint/js": "^9.32.0",
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "cypress": "^15.0.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-cypress": "^5.1.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "jest": "^30.0.5",
+    "prettier": "^3.6.2",
+    "start-server-and-test": "^2.0.13"
+  }
+}

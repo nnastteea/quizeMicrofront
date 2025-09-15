@@ -1,0 +1,35 @@
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e7717d, #c2cad0, #c2b9b0, #afd275);
+  background-size: 400% 400%;
+  animation: gradient-animation 8s ease infinite;
+}
+
+body::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #c2cad0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #686868;
+  border-radius: 3px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

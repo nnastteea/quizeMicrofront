@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies in root
+        run: npm install
+
+      - name: Install dependencies in host
+        run: |
+          cd host
+          npm install
+
+      - name: Install dependencies in quizeMicrofront
+        run: |
+          cd quizeMicrofront
+          npm install
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+      - name: Run unit tests in quizeMicrofront
+        run: |
+          cd quizeMicrofront
+          npm run test
+
+      - name: Run tests with coverage in quizeMicrofront
+        run: |
+          cd quizeMicrofront
+          npm run test:coverage

@@ -1,0 +1,45 @@
+.startContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.inputAndButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 450px;
+}
+
+.startTextContainer {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.startTextContainer h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.startTextContainer p {
+  font-size: 24px;
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .startTextContainer h1 {
+    font-size: 26px;
+  }
+  .startTextContainer p {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,45 @@
+.notificationContainer {
+  position: absolute;
+  bottom: 50px;
+  width: max-content;
+  background: black;
+  padding: 5px 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  transform: translateY(30px);
+  opacity: 0;
+  color: white;
+  animation: fade-in 4s linear forwards;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.notification {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: calc(100% - 10px);
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-image: linear-gradient(to right, #f5f5f5, #7e685a);
+  border-radius: inherit;
+  animation: load 3s 0.25s linear forwards;
+}
+
+@keyframes fade-in {
+  10% {
+    opacity: 0.75;
+    transform: translateY(0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes load {
+  to {
+    transform: scaleX(1);
+  }
+}

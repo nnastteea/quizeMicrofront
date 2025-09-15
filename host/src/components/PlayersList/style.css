@@ -1,0 +1,77 @@
+.listPlayersContainer {
+  width: 200px;
+  height: auto;
+  max-height: 250px;
+  background-color: rgb(130 113 101 / 99%);
+  z-index: 10;
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dropdownWrapper {
+  position: relative;
+}
+
+.listPlayersContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.listPlayersContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.listPlayersContainer::-webkit-scrollbar-thumb {
+  background-color: #686868;
+  border-radius: 3px;
+}
+
+.buttonOpenList {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    width: 30px;
+    height: 25px;
+  }
+
+  img {
+    height: auto;
+    margin-right: 5px;
+  }
+}
+.buttonOpenList:hover {
+  color: #e7717d;
+  transform: scale(1.02);
+}
+
+.player {
+  margin: 0;
+  font-weight: 300;
+  cursor: default;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+}
+
+.current {
+  color: rgb(189, 189, 189);
+}
+
+@media (max-width: 500px) {
+  .buttonOpenList {
+    font-size: 18px;
+  }
+}
