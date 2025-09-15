@@ -20,8 +20,8 @@ function Answer({ id, answer, isCorrect }: AnswerType) {
       style={
         selectedId === id
           ? isCorrect
-            ? { background: "rgba(175,210,117, 0.4)" }
-            : { background: "rgba(178,56,80, 0.4)" }
+            ? { background: "rgba(175,210,117, 0.5)" }
+            : { background: "rgba(178,56,80, 0.5)" }
           : { background: "rgba(255, 255, 255, 0.2)" }
       }
       className="answer"

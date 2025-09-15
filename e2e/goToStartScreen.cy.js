@@ -2,6 +2,7 @@ describe("Go from test to start screen", () => {
   beforeEach(() => {
     cy.visit("/");
     cy.get('[data-cy="user-name-input"]').type("testUser");
+    cy.get('[data-cy="room-id-input"]').type("room", { force: true });
     cy.get('[data-cy="start-quize-button"]').click();
     cy.url().should("include", "/quize");
   });

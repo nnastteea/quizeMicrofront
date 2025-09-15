@@ -15,8 +15,17 @@ describe("Start page", () => {
       .should("be.visible")
       .and("contain", "You should input your name!");
   });
+  it("it should be shown the notification when u forget input roomId", () => {
+    cy.get('[data-cy="user-name-input"]').type("testUser");
+    cy.get('[data-cy="start-quize-button"]').click();
+    cy.get('[data-cy="notification-message"]', { timeout: 10000 })
+      .should("be.visible")
+      .and("contain", "You should input room Id!");
+  });
+
   it("it should be new page with quize", () => {
     cy.get('[data-cy="user-name-input"]').type("testUser");
+    cy.get('[data-cy="room-id-input"]').type("room", { force: true });
     cy.get('[data-cy="start-quize-button"]').click();
     cy.url().should("include", "/quize");
     cy.get('[data-cy="quize-screen-container"]').should("exist");

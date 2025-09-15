@@ -60,6 +60,7 @@ function StartScreen() {
           inputText={roomId}
           inputId="input-room"
           setInputText={setRoomId}
+          dataCy="room-id-input"
           placeholder={hostAppText.inputLabelText.roomLabel}
         />
         <Button
