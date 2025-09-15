@@ -9,12 +9,30 @@ import ResultScreen from "./components/ResultScreen";
 
 import "./styles.css";
 
-function App() {
+interface Prop {
+  onQuizeDone: (arg: number) => void;
+  onAnswer: (arg: number) => void;
+}
+
+function App({ onQuizeDone, onAnswer }: Prop) {
   const { questions, currentQuestionInd, correctAnswers, isDone } = useSelector(
     (state: RootState) => state.quize,
   );
   const currentQuestion = questions[currentQuestionInd];
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isDone) {
+      onAnswer(correctAnswers);
+    }
+  }, [correctAnswers]);
+
+  useEffect(() => {
+    if (isDone) {
+      onQuizeDone(correctAnswers);
+    }
+  }, [isDone, onQuizeDone]);
+
   useEffect(() => {
     const handler = () => {
       dispatch(resetState());
@@ -27,14 +45,18 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="container">
+    <>
       {currentQuestion && !isDone ? (
-        <QuestionBlock key={currentQuestion.id} question={currentQuestion} />
+        <div className="container">
+          <QuestionBlock key={currentQuestion.id} question={currentQuestion} />
+        </div>
       ) : (
-        <ResultScreen correctAnswers={correctAnswers} questions={questions} />
+        <div className="containerResult">
+          <ResultScreen correctAnswers={correctAnswers} questions={questions} />
+        </div>
       )}
       <Button />
-    </div>
+    </>
   );
 }
 

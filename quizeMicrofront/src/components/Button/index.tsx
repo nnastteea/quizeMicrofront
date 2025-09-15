@@ -18,6 +18,7 @@ function Button() {
 
   const handleDoTestAgain = () => {
     dispatch(doTestAgain());
+    window.dispatchEvent(new CustomEvent("restart-quize"));
   };
 
   const isLastQuestion =

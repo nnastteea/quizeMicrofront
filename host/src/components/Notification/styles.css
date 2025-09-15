@@ -10,11 +10,8 @@
   opacity: 0;
   color: white;
   animation: fade-in 4s linear forwards;
-}
-
-p {
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .notification {

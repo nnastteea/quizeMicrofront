@@ -1,13 +1,11 @@
 import React from "react";
 
-import hostAppText from "../../constant/text";
-
 import "./styles.css";
 
-function Notification() {
+function Notification({ message }: { message: string }) {
   return (
     <div className="notificationContainer" data-cy="notification-message">
-      <p>{hostAppText.notification.notificationMessage}</p>
+      <p>{message}</p>
       <span className="notification"></span>
     </div>
   );

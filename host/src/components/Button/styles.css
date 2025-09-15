@@ -7,7 +7,7 @@
   border: 1px solid transparent;
   cursor: pointer;
   font-size: 18px;
-  background: #7e685a;
+  background: rgba(126, 104, 90, 0.9);
   color: black;
   transition: 0.4s;
   margin-bottom: 10px;

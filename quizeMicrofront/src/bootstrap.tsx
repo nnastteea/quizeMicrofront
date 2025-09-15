@@ -4,9 +4,9 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import App from "./App";
 
-const RemoteApp = () => (
+const RemoteApp = (props: any) => (
   <Provider store={store}>
-    <App />
+    <App {...props} />
   </Provider>
 );
 

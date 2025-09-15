@@ -1,28 +1,33 @@
 import React from "react";
 
-import hostAppText from "../../constant/text";
-import { useUser } from "../../UserContext";
+import InputProps from "../../types/InputProps";
 
 import "./styles.css";
 
-function Input() {
-  const { userName, setUserName } = useUser();
+function Input({
+  labelHtmlFor,
+  inputText,
+  inputId,
+  setInputText,
+  placeholder,
+  dataCy,
+}: InputProps) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(event.target.value);
+    setInputText(event.target.value);
   };
   return (
     <div className="inputContainer">
       <label
-        htmlFor="input-name"
-        className={userName ? "placeholder inFocus" : "placeholder"}
+        htmlFor={labelHtmlFor}
+        className={inputText ? "placeholder inFocus" : "placeholder"}
       >
-        {hostAppText.inputLabelText.label}
+        {placeholder}
       </label>
       <input
-        id="input-name"
+        id={inputId}
         type="text"
-        data-cy="user-name-input"
-        value={userName}
+        data-cy={dataCy}
+        value={inputText}
         onChange={handleChange}
         className="input"
       />

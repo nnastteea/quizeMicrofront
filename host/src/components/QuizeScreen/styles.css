@@ -9,9 +9,25 @@
 }
 
 .quizeH3 {
-  font-size: 22px;
+  font-size: 24px;
   color: #7e685a;
   letter-spacing: 5px;
   width: 80%;
   max-width: 800px;
+}
+
+.textStatus {
+  font-size: 22px;
+}
+
+@media (max-width: 500px) {
+  .quizeH3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-height: 720px) {
+  .quizeContainer {
+    height: auto;
+  }
 }

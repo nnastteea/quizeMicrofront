@@ -10,15 +10,16 @@ import Notification from "../Notification/index";
 import "./styles.css";
 
 function StartScreen() {
-  const { userName } = useUser();
-  const [isInput, setIsInput] = useState(false);
+  const { userName, setUserName } = useUser();
+  const [roomId, setRoomId] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     let timer: NodeJS.Timeout | undefined;
-    if (isInput) {
+    if (message) {
       timer = setTimeout(() => {
-        setIsInput(false);
+        setMessage("");
       }, 3000);
     }
     return () => {
@@ -26,16 +27,19 @@ function StartScreen() {
         clearTimeout(timer);
       }
     };
-  }, [isInput]);
+  }, [message]);
 
   const handleStartQuize = () => {
-    if (userName.trim() !== "") {
-      setIsInput(false);
-      navigate("/quize");
+    if (userName.trim() === "") {
+      setMessage(hostAppText.notification.inputMessage);
+    } else if (roomId.trim() === "") {
+      setMessage(hostAppText.notification.roomIdMessage);
     } else {
-      setIsInput(true);
+      setMessage("");
+      navigate("/quize", { state: { roomId, userName } });
     }
   };
+
   return (
     <div className="startContainer" data-cy="start-screen-container">
       <div className="startTextContainer">
@@ -43,13 +47,27 @@ function StartScreen() {
         <p>{hostAppText.startScreen.pText}</p>
       </div>
       <div className="inputAndButton">
-        <Input />
+        <Input
+          labelHtmlFor="input-name"
+          inputText={userName}
+          inputId="input-name"
+          setInputText={setUserName}
+          dataCy="user-name-input"
+          placeholder={hostAppText.inputLabelText.nameLabel}
+        />
+        <Input
+          labelHtmlFor="input-room"
+          inputText={roomId}
+          inputId="input-room"
+          setInputText={setRoomId}
+          placeholder={hostAppText.inputLabelText.roomLabel}
+        />
         <Button
           handleClick={handleStartQuize}
           text={hostAppText.buttonText.start}
           dataCy="start-quize-button"
         />
-        {isInput && <Notification />}
+        {message && <Notification message={message} />}
       </div>
     </div>
   );
